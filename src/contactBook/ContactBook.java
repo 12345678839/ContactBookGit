@@ -93,4 +93,31 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasContactByNumber(String number) {
+        boolean found = false;
+        int i = 0;
+        while(i < counter && !found) {
+            if(contacts[i].getPhone() == Integer.parseInt(number))
+                found = true;
+            else
+                i++;
+        }
+        return found;
+    }
+
+    public Contact getContactByNumber(String number) {
+        Contact c = null;
+        boolean found = false;
+        int i = 0;
+        while(i < counter && !found) {
+            if(contacts[i].getPhone() == Integer.parseInt(number)) {
+                found = true;
+                c = contacts[i];
+            }
+            else
+                i++;
+        }
+        return c;
+    }
+
 }
