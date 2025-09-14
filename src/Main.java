@@ -77,26 +77,28 @@ public class Main {
 
     private static void checkExtraPhones(ContactBook cBook) {
         boolean found = false;
-        if(cBook.getNumberOfContacts() != 0) {
-            cBook.initializeIterator();
-            Contact first = cBook.next();
-            int phone1 = first.getPhone();
 
-            while (cBook.hasNext()) {
-                Contact contact = cBook.next();
-                int phone2 = contact.getPhone();
-                if (phone1 == phone2) {
+        Contact[] temp = new Contact[cBook.getNumberOfContacts()];
+        cBook.initializeIterator();
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = cBook.next();
+        }
+
+        for (int i = 0; i < temp.length - 1 && !found; i++) {
+            for (int j = i + 1; j < temp.length && !found; j++) {
+                if (temp[i].getPhone() == temp[j].getPhone()) {
                     found = true;
-                }else
-                    found = false;
-            }
-            if(found) {
-                System.out.println(SAME_NUMBERS);
+                }
             }
         }
-        System.out.println(DIFF_NUMBERS);
 
+        if (found) {
+            System.out.println(SAME_NUMBERS);
+        } else {
+            System.out.println(DIFF_NUMBERS);
+        }
     }
+
 
     private static void getContact(Scanner in, ContactBook cBook) {
         String number = in.nextLine();
