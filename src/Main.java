@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -75,7 +76,26 @@ public class Main {
     }
 
     private static void checkExtraPhones(ContactBook cBook) {
-        // TODO implementar o metodo checkExtraPhones
+        boolean found = false;
+        if(cBook.getNumberOfContacts() != 0) {
+            cBook.initializeIterator();
+            Contact first = cBook.next();
+            int phone1 = first.getPhone();
+
+            while (cBook.hasNext()) {
+                Contact contact = cBook.next();
+                int phone2 = contact.getPhone();
+                if (phone1 == phone2) {
+                    found = true;
+                }else
+                    found = false;
+            }
+            if(found) {
+                System.out.println(SAME_NUMBERS);
+            }
+        }
+        System.out.println(DIFF_NUMBERS);
+
     }
 
     private static void getContact(Scanner in, ContactBook cBook) {
