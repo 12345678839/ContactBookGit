@@ -120,4 +120,17 @@ public class ContactBook {
         return c;
     }
 
+    public boolean searchEqualNumbers(){
+        boolean found = false;
+
+        for(int i = 0; i < counter - 1; i++){
+            for(int j = i + 1; j < counter; j++){
+                if(contacts[i].getPhone() == contacts[j].getPhone())
+                    found = true;
+            }
+        }
+
+        return found;
+    }
+
 }
