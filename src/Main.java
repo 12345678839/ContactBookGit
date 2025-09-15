@@ -89,9 +89,9 @@ public class Main {
         if(cBook.hasContactByNumber(number)) {
             Contact c = cBook.getContactByNumber(number);
             System.out.println(c.getName());
-        } else
+        } else {
             System.out.println(NUMBER_NOT_EXIST);
-
+        }
     }
 
     private static String getCommand(Scanner in) {
