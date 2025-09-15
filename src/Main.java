@@ -77,9 +77,9 @@ public class Main {
     private static void checkExtraPhones(ContactBook cBook) {
        if(cBook.searchEqualNumbers()){
            System.out.println(SAME_NUMBERS);
-       }else {
+       }else
            System.out.println(DIFF_NUMBERS);
-       }
+
     }
 
 
@@ -89,9 +89,9 @@ public class Main {
         if(cBook.hasContactByNumber(number)) {
             Contact c = cBook.getContactByNumber(number);
             System.out.println(c.getName());
-        } else {
+        } else
             System.out.println(NUMBER_NOT_EXIST);
-        }
+
     }
 
     private static String getCommand(Scanner in) {
